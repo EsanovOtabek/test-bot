@@ -1,0 +1,84 @@
+:root {
+    --main-color: #28a745; /* Yashil rang */
+    --main-color1: #004B23;
+    --main-color2: #006400;
+    --main-color3: #007200;
+    --main-color4: #008000;
+    --main-color5: #38B000;
+}
+.banner {
+    background: var(--main-color2);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.subject-card {
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    background: #dfe4df;
+    transition: 0.3s;
+}
+.subject-card:hover {
+    background: #e9ecef;
+}
+.subject-card i {
+    font-size: 40px;
+    color: var(--main-color);
+}
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+.bottom-nav a {
+    text-align: center;
+    color: gray;
+    font-size: 14px;
+    text-decoration: none;
+}
+.bottom-nav a i {
+    display: block;
+    font-size: 22px;
+}
+.bottom-nav a.active {
+    color: var(--main-color);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #28a745; /* Yashil fon */
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 3px solid #218838;
+}
+
+.header .back-btn {
+    position: absolute;
+    left: 15px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.header .back-btn:hover {
+    color: #d4d4d4;
+}
+
+.header-title {
+    text-align: center;
+}
