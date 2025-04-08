@@ -1,67 +1,53 @@
 @extends('admin.layout')
-@section('title', "Home")
+@section('title', "Subjects")
 
 @section('content')
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <h2>Home</h2>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3 bg-light">
         <div class="row">
+            <article class="p-3 col-12 card bg-light" id="tables">
+                <div class="card-title  justify-content-between d-flex">
+                    <h2>Fanlar</h2>
+                    <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#createModal">+ Fan qo'shish</button>
 
-            <div class="col-lg-4 p-3">
-                <div class="card text-white bg-primary mb-3" >
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h5 class="card-title">Users</h5>
-                                <h4 class="card-text">User all</h4>
+                </div>
+
+                <div class="card-body row gap-0.5">
+                    @foreach ($subjects as $subject)
+                        <div class="card col-md-2 p-2">
+                            <img src="data:image/png;base64,{{ $subject->icon }}" class="card-img-top rounded" alt="{{ $subject->name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $subject->name }}</h5>
                             </div>
-                            <div class="col-md-4">
-                                <p class="display-4"><i class="fas fa-users"></i></p>
+                            <div class="row g-2">
+
+                                <a href="#" class="btn btn-primary col-12"> <i class="fa fa-eye"></i> Testlar</a>
+                                <button class="btn btn-warning col-6" data-bs-toggle="modal" data-bs-target="#editModal{{ $subject->id }}"> <i class="fas fa-pencil"></i> Tahrirlash</button>
+                                <button type="button" class="btn btn-danger col-6 " onclick="ConfirmDelete()" form="#deleteform"> <i class="fas fa-trash"></i> O'chirish</button>
+
+                                <form action="{{ route('admin.subjects.destroy', $subject->id) }}" method="POST" style="display:none;" id="deleteform">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="card-footer pl-5"><a class="text-white text-decoration-none" href="#">View details></a></div>
+                    @endforeach
                 </div>
-            </div>
-
-            <div class="col-lg-4 p-3">
-                <div class="card text-white bg-secondary mb-3" >
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h5 class="card-title">Success</h5>
-                                <h4 class="card-text">Success all</h4>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="display-4"><i class="fas fa-tasks"></i></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer pl-5"><a class="text-white text-decoration-none" href="">View details></a></div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 p-3">
-                <div class="card text-white bg-success mb-3" >
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h5 class="card-title">Tasks (Levels)</h5>
-                                <h4 class="card-text">10 (8)</h4>
-                            </div>
-                            <div class="col-md-4">
-                                <p class="display-4"><i class="fas fa-file-alt"></i></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-footer pl-5"><a class="text-white text-decoration-none"  href="">View details></a></div>
-                </div>
-            </div>
-
+            </article>
         </div>
     </main>
+
+    <!-- Create Modal -->
+    @include('admin.modals.create-subject')
+
+    {{--    edit modals--}}
+    @include('admin.modals.edit-subject')
 @endsection
 
-
-@push('styles') @endpush
-@push('scripts') @endpush
+@push('scripts')
+    <script>
+        function ConfirmDelete()
+        {
+            return confirm("Ushbu fanni o'chirmoqchimisiz?");
+        }
+    </script>
+@endpush

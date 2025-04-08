@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +21,12 @@ Route::get("/", [SiteController::class, 'index'])->name("index");
 Route::middleware(['auth', 'admin'])->prefix('admin/')->name("admin.")->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
 
-    Route::get('/subjects', [SubjectController::class, 'index'])->name('subjects');
+    Route::resource('subjects', SubjectController::class)->names('subjects')->except(['show','edit', 'create']);
+
+    Route::resource('quizzes', QuizController::class)->names('quizzes')->except('create');
+
+    Route::resource('questions', QuestionController::class)->names('questions')->except(['show','edit', 'create']);
+
+    Route::post('/ckeditor/upload', [App\Http\Controllers\CKEditorController::class, 'upload'])->name('ckeditor.upload');
 
 });

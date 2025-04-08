@@ -16,30 +16,14 @@
     <!-- Fanlar Grid -->
     <div class="container mt-3">
         <div class="row g-3">
-            <div class="col-6">
-                <div class="subject-card">
-                    <i class="fas fa-calculator"></i>
-                    <p class="h5 fw-bold mt-2">Matematika</p>
+            @foreach($subjects as $subject)
+                <div class="col-6">
+                    <div class="subject-card">
+                        <img src="data:image/jpg;base64,{{ $subject->icon }}" alt="" width="100%">
+                        <p class="h5 fw-bold mt-2">{{ $subject->name }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-6">
-                <div class="subject-card">
-                    <i class="fas fa-flask"></i>
-                    <p class="h5 fw-bold mt-2">Kimyo</p>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="subject-card">
-                    <i class="fas fa-atom"></i>
-                    <p class="h5 fw-bold mt-2">Fizika</p>
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="subject-card">
-                    <i class="fas fa-book"></i>
-                    <p class="h5 fw-bold mt-2">Adabiyot</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 
