@@ -1,79 +1,56 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse text-white bg-dark pt-5 p-2">
-    <div class="position-sticky pt-3">
-        <ul class="nav flex-column nav-pills mb-auto">
-            <li class="nav-item">
-                <a class="nav-link text-white active" href="{{ route('admin.index') }}">
-                    <i class="fas fa-home"></i>
-                    Bosh sahifa
+<div class="hidden md:flex md:flex-shrink-0">
+    <div class="flex flex-col w-64 bg-white border-r border-gray-200">
+        <div class="flex items-center justify-center h-16 px-4 bg-green-600">
+            <span class="text-white font-bold text-xl">Quiz Admin</span>
+        </div>
+        <div class="flex flex-col flex-grow px-4 py-4 overflow-y-auto">
+            <nav class="flex-1 space-y-2">
+                <!-- Dashboard -->
+                <a href="{{ route('admin.index') }}" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-green-50 hover:text-green-600 group">
+                    <i class="fas fa-tachometer-alt mr-3 text-green-600"></i>
+                    Dashboard
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('admin.subjects.index') }}">
-                    <i class="fas fa-table"></i>
-                    Fanlar
-                </a>
-            </li>
-            <li class="nav-item">
 
-                <a class="nav-link text-white" href="{{route('admin.quizzes.index')}}">
-                    <i class="fas fa-list"></i>
+                <!-- Quizzes -->
+                <a href="{{ route('admin.quizzes.index') }}" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-green-50 hover:text-green-600 group">
+                    <i class="fas fa-question-circle mr-3 text-green-600"></i>
                     Testlar
                 </a>
-            </li>
 
-            <li class="nav-item ">
-                <a class="nav-link px-3 text-white collapsed" data-bs-toggle="collapse" href="#layouts">
-                    <span>Testlar</span>
-                    <span class="ms-auto">
-			                  <span class="right-icon">></span>
-			                </span>
+                <!-- Categories -->
+                <a href="{{ route('admin.subjects.index') }}" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-green-50 hover:text-green-600 group">
+                    <i class="fas fa-folder mr-3 text-green-600"></i>
+                    Fanlar
                 </a>
-                <div class="collapse" id="layouts" style="">
-                    <ul class="navbar-nav ps-3">
-                        <li>
-                            <a href="#" class="nav-link text-white px-3">
-                                <span>Testlar</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link text-white px-3">
-                                <span>Test qo'shish</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="cheatsheet.html">Cheatsheet</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="album.html">Album</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white" href="forms.html">Forms</a>
-            </li>
-            <hr>
 
-        </ul>
+                <!-- Questions -->
+                <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-green-50 hover:text-green-600 group">
+                    <i class="fas fa-question mr-3 text-green-600"></i>
+                    Savollar
+                </a>
 
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Saved reports</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-                <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column mb-2"><ul class="nav flex-column mb-2">
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="login.html">
-                        Login
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="404.html">
-                        404
-                    </a>
-                </li>
-            </ul>
-        </ul>
+                <!-- Users -->
+                <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-green-50 hover:text-green-600 group">
+                    <i class="fas fa-users mr-3 text-green-600"></i>
+                    Foydalanuvchilar
+                </a>
+
+                <!-- Results -->
+                <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-green-50 hover:text-green-600 group">
+                    <i class="fas fa-chart-bar mr-3 text-green-600"></i>
+                    Natijalar
+                </a>
+            </nav>
+
+            <!-- Bottom Section -->
+            <div class="mt-auto pb-4">
+                <hr class="my-2 border-gray-200">
+                <!-- Settings -->
+                <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-green-50 hover:text-green-600 group">
+                    <i class="fas fa-cog mr-3 text-green-600"></i>
+                    Sozlamalar
+                </a>
+            </div>
+        </div>
     </div>
-</nav>
+</div>
